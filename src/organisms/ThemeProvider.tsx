@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-export const ThemeContext = React.createContext('');
+export const ThemeContext = React.createContext('base');
 
-const ThemeProvider = ({ children, theme }) => {
+type ThemeProviderType = {
+  children: ReactNode;
+  theme: string;
+};
+
+const ThemeProvider = ({ children, theme }: ThemeProviderType) => {
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );

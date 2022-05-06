@@ -1,37 +1,172 @@
-import { Button, ThemeProvider } from 'mutache-styler';
+import { Button, colors, ThemeProvider } from 'mutache-styler';
 import React, { useState } from 'react';
-import { Pressable, SafeAreaView, Text, View } from 'react-native';
+import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+
+const exampleStyles = StyleSheet.create({
+  container: { marginVertical: 5 },
+  pressable: {
+    backgroundColor: colors.green100,
+    padding: 5,
+    margin: 3,
+    borderRadius: 4,
+  },
+  pressableText: {
+    textAlign: 'center',
+    color: colors.black100,
+  },
+});
 
 export default function App() {
   const [theme, setTheme] = useState('pink');
   return (
     <SafeAreaView>
-      <Pressable onPress={() => setTheme('pink')}>
-        <Text>Set Pink</Text>
+      <Pressable
+        onPress={() => setTheme('pink')}
+        style={exampleStyles.pressable}
+      >
+        <Text style={exampleStyles.pressableText}>Set Pink</Text>
       </Pressable>
-      <Pressable onPress={() => setTheme('base')}>
-        <Text>Set base</Text>
+      <Pressable
+        onPress={() => setTheme('base')}
+        style={exampleStyles.pressable}
+      >
+        <Text style={exampleStyles.pressableText}>Set base</Text>
       </Pressable>
+
       <ThemeProvider theme={theme}>
-        <View>
-          <Text>EEEEEEEE</Text>
+        <View style={{ padding: 20 }}>
+          <Button
+            onPress={() => {}}
+            variant="primary"
+            styles={exampleStyles.container}
+          >
+            Primary
+          </Button>
+          <Button
+            onPress={() => {}}
+            variant="secondary"
+            styles={exampleStyles.container}
+          >
+            Secondary
+          </Button>
+          <Button
+            onPress={() => {}}
+            variant="link"
+            styles={exampleStyles.container}
+          >
+            Link
+          </Button>
+          <Button
+            onPress={() => {}}
+            variant="flat"
+            styles={exampleStyles.container}
+          >
+            Flat
+          </Button>
+
+          <Button
+            onPress={() => {}}
+            disabled
+            variant="primary"
+            styles={exampleStyles.container}
+          >
+            Primary
+          </Button>
+          <Button
+            onPress={() => {}}
+            disabled
+            variant="secondary"
+            styles={exampleStyles.container}
+          >
+            Secondary
+          </Button>
+          <Button
+            onPress={() => {}}
+            disabled
+            variant="link"
+            styles={exampleStyles.container}
+          >
+            Link
+          </Button>
+          <Button
+            onPress={() => {}}
+            disabled
+            variant="flat"
+            styles={exampleStyles.container}
+          >
+            Flat
+          </Button>
+
+          <Button
+            onPress={() => {}}
+            size="small"
+            variant="primary"
+            styles={exampleStyles.container}
+          >
+            Primary
+          </Button>
+          <Button
+            onPress={() => {}}
+            size="small"
+            variant="secondary"
+            styles={exampleStyles.container}
+          >
+            Secondary
+          </Button>
+          <Button
+            onPress={() => {}}
+            size="small"
+            variant="link"
+            styles={exampleStyles.container}
+          >
+            Link
+          </Button>
+          <Button
+            onPress={() => {}}
+            size="small"
+            variant="flat"
+            styles={exampleStyles.container}
+          >
+            Flat
+          </Button>
+
+          <Button
+            onPress={() => {}}
+            size="small"
+            disabled
+            variant="primary"
+            styles={exampleStyles.container}
+          >
+            Primary
+          </Button>
+          <Button
+            onPress={() => {}}
+            size="small"
+            disabled
+            variant="secondary"
+            styles={exampleStyles.container}
+          >
+            Secondary
+          </Button>
+          <Button
+            onPress={() => {}}
+            size="small"
+            disabled
+            variant="link"
+            styles={exampleStyles.container}
+          >
+            Link
+          </Button>
+          <Button
+            onPress={() => {}}
+            size="small"
+            disabled
+            variant="flat"
+            styles={exampleStyles.container}
+          >
+            Flat
+          </Button>
         </View>
-        <Button variant="primary">AAAAAAA</Button>
-        <Button variant="secondary">AAAAAAA</Button>
-        <Button variant="link">AAAAAAA</Button>
-        <Button variant="flat">AAAAAAA</Button>
-        <Button size="small" variant="primary">
-          AAAAAAA
-        </Button>
-        <Button size="small" variant="secondary">
-          AAAAAAA
-        </Button>
-        <Button size="small" variant="link">
-          AAAAAAA
-        </Button>
-        <Button size="small" variant="flat">
-          AAAAAAA
-        </Button>
       </ThemeProvider>
     </SafeAreaView>
   );

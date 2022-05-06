@@ -1,6 +1,6 @@
+import font from '../layout/font';
 import spacing from '../layout/spacing';
 import { remToPixel } from '../layout/styleFunctions';
-import baseColors from '../theme/baseColors';
 import themes from '../theme/themes';
 
 const containerStructure = {
@@ -11,40 +11,41 @@ const containerStructure = {
   padding: spacing.mini_m,
 };
 
-const smallButtonContainer = {
-  ...containerStructure,
-  paddingVertical: 'mini_xxs',
+const textStructure = {
+  fontSize: remToPixel(0.875),
+  // fontFamily: font.fw600,
+  paddingHorizontal: spacing.mini_xs,
+  justifyContent: 'center',
+  textAlign: 'center',
 };
 
-const buttonContainerStyle = (theme: any) => {
-  const stretchButtonContainer = { justifyContent: 'space-between' };
-
+const buttonContainerStyle = (theme, disabled) => {
   const primaryColor = {
-    backgroundColor: themes[theme].button.container.primary, // por ahi puedo reducirlo a los colores basicos
+    backgroundColor: themes[theme].mainColor,
   };
   const primaryDisabledColor = {
-    backgroundColor: baseColors.mainDisabledColor,
+    backgroundColor: themes[theme].mainDisabledColor,
   };
   const secondaryColor = {
     borderWidth: 1,
-    backgroundColor: themes[theme].button.container.secondary,
-    borderColor: themes[theme].button.containerBorder.secondary,
+    backgroundColor: themes[theme].transparent,
+    borderColor: themes[theme].mainColor,
   };
   const secondaryDisabledColor = {
     borderWidth: 1,
-    backgroundColor: baseColors.foregroundLighten,
-    borderColor: baseColors.mainDisabledColor,
+    backgroundColor: themes[theme].foregroundLighten,
+    borderColor: themes[theme].mainDisabledColor,
   };
-  const linkColor = { backgroundColor: themes[theme].button.container.link };
-  const flatColor = { backgroundColor: themes[theme].button.container.flat };
+  const linkColor = { backgroundColor: themes[theme].transparent };
+  const flatColor = { backgroundColor: themes[theme].transparent };
   return {
     primary: {
       ...containerStructure,
-      ...primaryColor,
+      ...(disabled ? primaryDisabledColor : primaryColor),
     },
     secondary: {
       ...containerStructure,
-      ...secondaryColor,
+      ...(disabled ? secondaryDisabledColor : secondaryColor),
     },
     link: {
       ...containerStructure,
@@ -57,19 +58,29 @@ const buttonContainerStyle = (theme: any) => {
   };
 };
 
-export const buttonTextStyle = (theme: any) => {
+export const buttonTextStyle = (theme: any, disabled: boolean) => {
   return {
     primary: {
-      color: themes[theme].button.text.primary,
+      ...textStructure,
+      color: themes[theme].textColorLighten,
     },
     secondary: {
-      color: themes[theme].button.text.secondary,
+      ...textStructure,
+      color: disabled
+        ? themes[theme].mainDisabledColorDarken
+        : themes[theme].mainColor,
     },
     link: {
-      color: themes[theme].button.text.link,
+      ...textStructure,
+      color: disabled
+        ? themes[theme].mainDisabledColorDarken
+        : themes[theme].mainColor,
     },
     flat: {
-      color: themes[theme].button.text.flat,
+      ...textStructure,
+      color: disabled
+        ? themes[theme].mainDisabledColorDarken
+        : themes[theme].mainColor,
     },
   };
 };

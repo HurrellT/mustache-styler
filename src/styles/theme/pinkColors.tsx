@@ -4,7 +4,8 @@ export type BaseColorsType = {
   [key: string]: string;
 };
 
-const pinkColors: BaseColorsType = {
+// const pinkColors: BaseColorsType = {
+const pink: BaseColorsType = {
   bgLightest: colors.white,
   bgLighten: colors.white300,
   bg: colors.grey200,
@@ -32,4 +33,5 @@ const pinkColors: BaseColorsType = {
   transparent: colors.transparent,
 };
 
-export default pinkColors;
+export default pink;
+// export default pinkColors;

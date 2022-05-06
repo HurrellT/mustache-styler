@@ -1,5 +1,9 @@
 import baseColors from './baseColors';
 
+/// NO SE ESTA USANDO ES MEDIO CHOTIS
+/// NO SE ESTA USANDO ES MEDIO CHOTIS
+/// NO SE ESTA USANDO ES MEDIO CHOTIS
+
 const base = {
   content: '#AB2B84',
   box: '#DD86C3',

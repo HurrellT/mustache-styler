@@ -4,7 +4,8 @@ export type BaseColorsType = {
   [key: string]: string;
 };
 
-const baseColors: BaseColorsType = {
+// const baseColors: BaseColorsType = {
+const base: BaseColorsType = {
   bgLightest: colors.white,
   bgLighten: colors.white300,
   bg: colors.grey200,
@@ -32,4 +33,5 @@ const baseColors: BaseColorsType = {
   transparent: colors.transparent,
 };
 
-export default baseColors;
+export default base;
+// export default baseColors;

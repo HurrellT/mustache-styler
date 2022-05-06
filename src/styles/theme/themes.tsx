@@ -1,13 +1,22 @@
-import base from './base';
-import pink from './pink';
+// import base from './base';
+// import pink from './pink';
+
+import base from './baseColors';
+import pink from './pinkColors';
 
 const themes = {
-  base: {
-    ...base,
-  },
   pink: {
     ...pink,
   },
+  base: {
+    ...base,
+  },
+  // base: {
+  //   ...base,
+  // },
+  // pink: {
+  //   ...pink,
+  // },
 };
 
 export default themes;

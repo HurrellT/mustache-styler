@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../organisms/ThemeProvider';
 
-const useTheme = () => {
+const useTheme = (): string => {
   return useContext(ThemeContext);
 };
 

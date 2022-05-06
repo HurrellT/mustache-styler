@@ -1,5 +1,9 @@
 import pinkColors from './pinkColors';
 
+/// NO SE ESTA USANDO ES MEDIO CHOTIS
+/// NO SE ESTA USANDO ES MEDIO CHOTIS
+/// NO SE ESTA USANDO ES MEDIO CHOTIS
+
 const pink = {
   content: '#AB2B84',
   box: '#DD86C3',
