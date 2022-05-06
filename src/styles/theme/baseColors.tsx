@@ -1,11 +1,7 @@
 import colors from '../layout/colors';
+import type { PaletteType } from '../../types/theme/Theming';
 
-export type BaseColorsType = {
-  [key: string]: string;
-};
-
-// const baseColors: BaseColorsType = {
-const base: BaseColorsType = {
+const base: PaletteType = {
   bgLightest: colors.white,
   bgLighten: colors.white300,
   bg: colors.grey200,
@@ -34,4 +30,3 @@ const base: BaseColorsType = {
 };
 
 export default base;
-// export default baseColors;

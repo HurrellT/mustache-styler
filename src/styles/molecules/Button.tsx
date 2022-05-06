@@ -1,25 +1,29 @@
-import font from '../layout/font';
+import type { ThemeStyleType } from '../../types/theme/Theming';
 import spacing from '../layout/spacing';
 import { remToPixel } from '../layout/styleFunctions';
 import themes from '../theme/themes';
 
-const containerStructure = {
-  borderRadius: remToPixel(0.25),
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: spacing.mini_m,
-};
+const buttonContainerStyle = ({
+  theme,
+  disabled,
+  size,
+  aligment,
+}: ThemeStyleType) => {
+  const containerSize =
+    size === 'small' ? { paddingVertical: spacing.mini_xxs } : {};
+  const containerAligment =
+    aligment === 'stretch'
+      ? { justifyContent: 'space-between' }
+      : { justifyContent: 'center' };
 
-const textStructure = {
-  fontSize: remToPixel(0.875),
-  // fontFamily: font.fw600,
-  paddingHorizontal: spacing.mini_xs,
-  justifyContent: 'center',
-  textAlign: 'center',
-};
+  const containerStructure = {
+    borderRadius: remToPixel(0.25),
+    flexDirection: 'row',
+    padding: spacing.mini_m,
+    ...containerSize,
+    ...containerAligment,
+  };
 
-const buttonContainerStyle = (theme, disabled) => {
   const primaryColor = {
     backgroundColor: themes[theme].mainColor,
   };
@@ -38,6 +42,7 @@ const buttonContainerStyle = (theme, disabled) => {
   };
   const linkColor = { backgroundColor: themes[theme].transparent };
   const flatColor = { backgroundColor: themes[theme].transparent };
+
   return {
     primary: {
       ...containerStructure,
@@ -58,7 +63,15 @@ const buttonContainerStyle = (theme, disabled) => {
   };
 };
 
-export const buttonTextStyle = (theme: any, disabled: boolean) => {
+export const buttonTextStyle = ({ theme, disabled }: ThemeStyleType) => {
+  const textStructure = {
+    fontSize: remToPixel(0.875),
+    // fontFamily: font.fw600,
+    paddingHorizontal: spacing.mini_xs,
+    justifyContent: 'center',
+    textAlign: 'center',
+  };
+
   return {
     primary: {
       ...textStructure,
@@ -67,20 +80,20 @@ export const buttonTextStyle = (theme: any, disabled: boolean) => {
     secondary: {
       ...textStructure,
       color: disabled
-        ? themes[theme].mainDisabledColorDarken
+        ? themes[theme].mainDisabledColor
         : themes[theme].mainColor,
     },
     link: {
       ...textStructure,
       color: disabled
-        ? themes[theme].mainDisabledColorDarken
+        ? themes[theme].mainDisabledColor
         : themes[theme].mainColor,
     },
     flat: {
       ...textStructure,
       color: disabled
-        ? themes[theme].mainDisabledColorDarken
-        : themes[theme].mainColor,
+        ? themes[theme].mainDisabledColor
+        : themes[theme].textColor,
     },
   };
 };

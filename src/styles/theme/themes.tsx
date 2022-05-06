@@ -1,22 +1,14 @@
-// import base from './base';
-// import pink from './pink';
-
+import type { ThemeObjectType } from '../../types/theme/Theming';
 import base from './baseColors';
 import pink from './pinkColors';
 
-const themes = {
+const themes: ThemeObjectType = {
   pink: {
     ...pink,
   },
   base: {
     ...base,
   },
-  // base: {
-  //   ...base,
-  // },
-  // pink: {
-  //   ...pink,
-  // },
 };
 
 export default themes;

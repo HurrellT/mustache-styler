@@ -7,7 +7,6 @@ import {
   View,
 } from 'react-native';
 import useTheme from '../styles/layout/useTheme';
-import spacing from '../styles/layout/spacing';
 import useThemedStyles from '../styles/layout/useThemedStyles';
 import buttonContainerStyle, {
   buttonTextStyle,
@@ -22,9 +21,8 @@ type BoxType = {
   styles?: Object;
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   activeOpacity?: number;
-  // headingIcon:
-  // trailingIcon:
-  // FALTA WITH ICON ;___;
+  headingIcon?: string;
+  trailingIcon?: string;
 };
 
 const Button = ({
@@ -36,13 +34,23 @@ const Button = ({
   activeOpacity = 0.8,
   onPress,
   styles,
+  headingIcon,
+  trailingIcon,
 }: BoxType) => {
   const exampleTheme = useTheme();
   // El hook resuelve esto useThemedStyles
   // const getTheme = useTheme();
   // const containerStyle = buttonContainerStyle(getTheme, disabled);
-  const containerStyle = useThemedStyles(buttonContainerStyle, disabled);
-  const textStyle = useThemedStyles(buttonTextStyle, disabled);
+  const containerStyle = useThemedStyles({
+    styleFunction: buttonContainerStyle,
+    disabled,
+    size,
+    aligment: stretch ? 'stretch' : '',
+  });
+  const textStyle = useThemedStyles({
+    styleFunction: buttonTextStyle,
+    disabled,
+  });
 
   console.log(
     `\x1b[42mcontainerStyle, theme ${exampleTheme}\x1b[0m`,
@@ -50,14 +58,9 @@ const Button = ({
   );
   console.log(`\x1b[45mtextStyle, theme ${exampleTheme}\x1b[0m`, textStyle);
 
-  // REVISAR
-  // Esto podría ser un hook que devuelva el objeto de estilos extra según lo que pasen
-  // Acá se puede sumar el tema del icon
-  // Estos estilos no están tan relacionados al color como a la estrcutura,
-  // por eso podrían pensarse por separado
-  const containerSize =
-    size === 'small' ? { paddingVertical: spacing.micro_xxs } : {};
-  const containerFlex = stretch ? { justifyContent: 'space-between' } : {};
+  const returnIconComponent = (icon: string) => (
+    <Text style={textStyle[variant]}>{icon}</Text>
+  );
 
   return (
     <TouchableOpacity
@@ -66,8 +69,12 @@ const Button = ({
       activeOpacity={activeOpacity}
       style={styles} // el espaciado podría ser una prop más, que solo permita margin
     >
-      <View style={[containerStyle[variant], containerSize, containerFlex]}>
+      <View style={containerStyle[variant]}>
+        {headingIcon && returnIconComponent(headingIcon)}
+        {/* arreglé error de children agregando types/react en resolutions
+        https://stackoverflow.com/questions/71916289/react-native-component-cannot-be-used-as-a-jsx-component-type-is-not-as */}
         <Text style={textStyle[variant]}>{children}</Text>
+        {trailingIcon && returnIconComponent(trailingIcon)}
       </View>
     </TouchableOpacity>
   );

@@ -3,6 +3,9 @@ import { View } from 'react-native';
 import useThemedStyles from '../styles/layout/useThemedStyles';
 import buttonContainerStyle from '../styles/molecules/Button';
 
+/// NO SE ESTA USANDO BAI
+/// NO SE ESTA USANDO BAI
+/// NO SE ESTA USANDO BAI
 type BoxType = {
   children: ReactNode;
   variant: 'typeOne' | 'typeTwo' | 'typeThree';
