@@ -9,6 +9,7 @@ const buttonContainerStyle = ({
   size,
   aligment,
 }: ThemeStyleType) => {
+  // Conditional Styles
   const containerSize =
     size === 'small' ? { paddingVertical: spacing.mini_xxs } : {};
   const containerAligment =
@@ -16,6 +17,7 @@ const buttonContainerStyle = ({
       ? { justifyContent: 'space-between' }
       : { justifyContent: 'center' };
 
+  // Common Structure
   const containerStructure = {
     borderRadius: remToPixel(0.25),
     flexDirection: 'row',
@@ -24,6 +26,7 @@ const buttonContainerStyle = ({
     ...containerAligment,
   };
 
+  // Colors
   const primaryColor = {
     backgroundColor: themes[theme].mainColor,
   };
@@ -43,6 +46,7 @@ const buttonContainerStyle = ({
   const linkColor = { backgroundColor: themes[theme].transparent };
   const flatColor = { backgroundColor: themes[theme].transparent };
 
+  // Variants
   return {
     primary: {
       ...containerStructure,
@@ -64,6 +68,7 @@ const buttonContainerStyle = ({
 };
 
 export const buttonTextStyle = ({ theme, disabled }: ThemeStyleType) => {
+  // Common Structure
   const textStructure = {
     fontSize: remToPixel(0.875),
     // fontFamily: font.fw600,
@@ -72,6 +77,7 @@ export const buttonTextStyle = ({ theme, disabled }: ThemeStyleType) => {
     textAlign: 'center',
   };
 
+  // Variants
   return {
     primary: {
       ...textStructure,

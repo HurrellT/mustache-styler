@@ -1,11 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import type { ThemeProviderType } from '../types/theme/Theming';
 
-export const ThemeContext = React.createContext('base');
-
-type ThemeProviderType = {
-  children: ReactNode;
-  theme: string;
-};
+export const ThemeContext = React.createContext<'base' | 'pink'>('base');
 
 const ThemeProvider = ({ children, theme }: ThemeProviderType) => {
   return (
