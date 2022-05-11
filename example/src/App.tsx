@@ -1,7 +1,6 @@
+import { Button, ThemeProvider } from 'mutache-styler';
 import React, { useState } from 'react';
-
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Button, ThemeContext } from 'mutache-styler';
 
 export default function App() {
   const [variant, setVariant] = useState<'primary' | 'secondary'>('primary');
@@ -9,7 +8,7 @@ export default function App() {
   const [theme, setTheme] = useState<'trading' | 'cripto'>('trading');
 
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeProvider theme={theme}>
       <View style={styles.container}>
         <Button
           title="Button"
@@ -50,7 +49,7 @@ export default function App() {
           </View>
         </View>
       </View>
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 

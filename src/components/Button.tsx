@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { useTheme } from './Theme';
+import { useTheme } from '../contexts/Theme';
 
 export type ButtonType = {
   activeOpacity?: number;
