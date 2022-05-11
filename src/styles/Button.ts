@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import FontSize from '../designSystem/FontSize';
 import Height from '../designSystem/Height';
 import Spacing from '../designSystem/Spacing';
-import type ThemeType from '../designSystem/themes/ThemeType';
+import type { ThemeType } from '../designSystem/themes/ThemeType';
 
 const ButtonStyles = (theme: ThemeType) => ({
   container: StyleSheet.create({

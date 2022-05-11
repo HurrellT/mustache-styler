@@ -1,6 +1,6 @@
 import Button from './Button';
 
-export type ComponentsStyles = 'Button';
+export type ComponentsStyles = keyof typeof AllComponentStyles;
 
 const AllComponentStyles = {
   Button,

@@ -15,8 +15,6 @@ import type AllThemes from './allThemes';
 //   };
 // };
 
-export type ThemesType =
-  | keyof { [key in keyof typeof AllThemes]: string }
-  | undefined;
+export type ThemesType = keyof { [key in keyof typeof AllThemes]: string };
 
-export type ThemeType = typeof AllThemes;
+export type ThemeType = typeof AllThemes.base;

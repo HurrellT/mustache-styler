@@ -4,7 +4,7 @@ import allThemes from '../designSystem/themes/allThemes';
 import type { ComponentsStyles } from '../styles/allComponentStyles';
 import AllComponentStyles from '../styles/allComponentStyles';
 
-export const ThemeContext = createContext<ThemesType>(undefined);
+export const ThemeContext = createContext<ThemesType>('base');
 
 const ThemeProvider = ({ children, theme }) => {
   return (
@@ -14,7 +14,7 @@ const ThemeProvider = ({ children, theme }) => {
 
 export const useTheme = (componentName: ComponentsStyles) => {
   const theme = useContext(ThemeContext);
-  const currentTheme = allThemes[theme!];
+  const currentTheme = allThemes[theme];
   return AllComponentStyles[componentName](currentTheme);
 };
 

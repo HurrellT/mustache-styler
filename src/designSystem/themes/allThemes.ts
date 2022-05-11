@@ -2,7 +2,7 @@ import CriptoTheme from './CriptoTheme';
 import TradingTheme from './TradingTheme';
 
 const AllThemes = {
-  trading: TradingTheme,
+  base: TradingTheme,
   cripto: CriptoTheme,
 };
 

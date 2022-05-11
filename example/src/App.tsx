@@ -1,11 +1,14 @@
 import { Button, ThemeProvider } from 'mutache-styler';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import type { SizesType } from 'src/designSystem/Sizing';
+import type { ThemesType } from 'src/designSystem/themes/ThemeType';
+import type { VariantsType } from 'src/designSystem/Variants';
 
 export default function App() {
-  const [variant, setVariant] = useState<'primary' | 'secondary'>('primary');
-  const [size, setSize] = useState<'small' | 'medium' | 'large'>('medium');
-  const [theme, setTheme] = useState<'trading' | 'cripto'>('trading');
+  const [variant, setVariant] = useState<VariantsType>('primary');
+  const [size, setSize] = useState<SizesType>('medium');
+  const [theme, setTheme] = useState<ThemesType>('base');
 
   return (
     <ThemeProvider theme={theme}>
@@ -40,7 +43,7 @@ export default function App() {
           </View>
           <Text>Theme: </Text>
           <View style={styles.containerOptions}>
-            <TouchableOpacity onPress={() => setTheme('trading')}>
+            <TouchableOpacity onPress={() => setTheme('base')}>
               <Text>Trading</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setTheme('cripto')}>
