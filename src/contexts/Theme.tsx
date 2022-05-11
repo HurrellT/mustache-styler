@@ -1,8 +1,8 @@
 import React, { createContext, useContext } from 'react';
-import type { ThemesType } from 'src/designSystem/themes/ThemeType';
-import allThemes from '../designSystem/themes/allThemes';
-import type { ComponentsStyles } from '../styles/allComponentStyles';
-import AllComponentStyles from '../styles/allComponentStyles';
+import type { ThemesType } from 'example/src/designSystem/themes/ThemeType';
+import allThemes from '../../example/src/designSystem/themes/allThemes';
+import type { ComponentsStyles } from '../../example/src/styles/allComponentStyles';
+import AllComponentStyles from '../../example/src/styles/allComponentStyles';
 
 export const ThemeContext = createContext<ThemesType>('base');
 
