@@ -1,4 +1,3 @@
-import Button, { ButtonType } from './components/Button';
-import ThemeProvider from './contexts/Theme';
+import ThemeProvider, { useComponentTheme, useTheme } from './contexts/Theme';
 
-export { Button, ButtonType, ThemeProvider };
+export { ThemeProvider, useComponentTheme, useTheme };

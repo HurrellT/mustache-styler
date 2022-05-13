@@ -1,22 +1,12 @@
 import type AllThemes from './allThemes';
 
-// export type ThemeType = {
-//   button: {
-//     primaryBackground: string;
-//     primaryBackgrounDisabled: string;
-//     primaryTextColor: string;
-//     primaryTextColorDisabled: string;
-//     secondaryBackground: string;
-//     secondaryBackgroundDisabled: string;
-//     secondaryBorderColor: string;
-//     secondaryBorderColorDisabled: string;
-//     secondaryTextColor: string;
-//     secondaryTextColorDisabled: string;
-//   };
-// };
+export type ThemeType = typeof AllThemes.base;
 
 export type ThemesType =
   | 'base'
   | keyof { [key in keyof typeof AllThemes]: string };
 
-export type ThemeType = typeof AllThemes.base;
+export type ThemeContextType = {
+  currentTheme: ThemesType;
+  setCurrentTheme?: React.Dispatch<React.SetStateAction<ThemesType>>;
+};

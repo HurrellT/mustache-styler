@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { useTheme } from '../contexts/Theme';
+import { useComponentTheme } from '../../../src/contexts/Theme';
+import { Components } from '../styles/allComponentStyles';
 
 export type ButtonType = {
   activeOpacity?: number;
@@ -22,7 +23,9 @@ const Button = ({
   onPress,
   variant = 'primary',
 }: ButtonType) => {
-  const { container: containerStyle, text: textStyle } = useTheme('Button');
+  const { container: containerStyle, text: textStyle } = useComponentTheme(
+    Components.Button
+  );
 
   return (
     <TouchableOpacity

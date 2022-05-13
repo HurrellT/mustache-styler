@@ -1,9 +1,13 @@
-import Button from './Button';
+import ButtonStyle from './Button';
 
 export type ComponentsStyles = keyof typeof AllComponentStyles;
 
+export enum Components {
+  Button = 'Button',
+}
+
 const AllComponentStyles = {
-  Button,
+  Button: ButtonStyle,
 };
 
 export default AllComponentStyles;
