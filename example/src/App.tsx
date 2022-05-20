@@ -1,10 +1,12 @@
-import * as React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { ThemeProvider } from 'mutache-styler';
+import React from 'react';
+import Home from './components/Home';
+import { Themes } from './designSystem/themes/allThemes';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <Text>Text</Text>
-    </SafeAreaView>
+    <ThemeProvider theme={Themes.base}>
+      <Home />
+    </ThemeProvider>
   );
 }
