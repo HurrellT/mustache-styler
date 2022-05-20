@@ -14,6 +14,7 @@ const TradingTheme = {
     secondaryTextColor: Colors.blue500,
     secondaryTextColorDisabled: Colors.grey400,
   },
+  input: {},
 };
 
 export default TradingTheme;
